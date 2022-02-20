@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="hw4.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+
+<body>
+
+<h1>Joe’s Hotdog 
+Stand</h1>
+<h2>Joe’s special offer - 10% discount if the order (before tax) is at least $20</h2>
+
+<p>Please click each button and select desired quantity.</p>
+
+<p id= "print"></p>
+
+<button onclick="get_hotdogs()">Hot Dogs ($3.75 each)</button>
+
+<button onclick="get_fries()">French Fries ($2.00 each)</button>
+
+<button onclick="get_drinks()">Drinks ($1.80 each)</button>
+
+<script>
+	var num_hotdogs = 0;
+	var num_fries = 0;
+	var num_drinks = 0;
+	var discount = 0;
+
+	print_total();
+
+	function get_hotdogs() {
+		let input = prompt("How many hotdogs would you like?", num_hotdogs);
+		num_hotdogs = Number(input);
+		print_total();
+	}
+
+	function get_fries() {
+		let input = prompt("How many fries would you like?", num_fries);
+		num_fries = Number(input);
+		print_total();
+	}
+
+	function get_drinks() {
+		let input = prompt("How many drinks would you like?", num_drinks);
+		num_drinks = Number(input);
+		print_total();
+	}
+
+	function print_total() {
+		let subtotal = (num_hotdogs * 3.75) + (num_fries * 2.00) + (num_drinks * 1.80);
+		if (subtotal >= 20.00) {
+			discount = subtotal * 0.1;
+		} else {
+			discount = 0;
+		}
+		total = subtotal - discount;
+		total *= 1.0625;
+		document.getElementById("print").innerHTML
+			= "You selected: " + num_hotdogs + " hotdogs, " + num_fries + " fries, and " + num_drinks + " drinks.<br/>"
+			+ "Your subtotal is: $" + subtotal.toFixed(2) + "<br/>"
+			+ "Your discount is: $" + discount.toFixed(2) + "<br/>"
+			+ "Your total (after tax) is: $" + total.toFixed(2);
+
+
+	}
+
+
+
+</script>
+
+</body>
+</html>
