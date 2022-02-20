@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/css" href="hw3.css"?>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <song_list>
 	<song>
@@ -63,3 +64,4 @@
 		<year> Year: 2014</year>
 	</song>
 </song_list>
+</meta>
