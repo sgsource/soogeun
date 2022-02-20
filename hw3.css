@@ -1,0 +1,26 @@
+song_list {
+	display:block;
+	font-family: Verdana;
+}
+
+song {
+  	padding: 10px;
+  	font-size: 15px;
+  	width: 100%;
+}
+
+song artists {
+	display:block;
+}
+song title {
+	color: #7e805d;
+	display:block;
+	font-size: 25px;
+	font-weight: 800;
+}
+song genre {
+	display:block;
+}
+song year {
+	display:block;
+}

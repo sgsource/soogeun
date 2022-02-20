@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="hw3.css"?>
+
+<song_list>
+	<song>
+		<title>Title: Shake It Off</title>
+		<artists>Artist: Taylor Swift</artists>
+		<genre> Genre: Pop</genre>
+		<year> Year: 2014</year>
+	</song>
+	<song>
+		<title>Title: All You Need is Love</title>
+		<artists>Artist: The Beatles</artists>
+		<genre> Genre: Children's Music/ Folk</genre>
+		<year> Year: 1967</year>
+	</song>
+	<song>
+		<title>Title: Can't Help Falling in Love</title>
+		<artists>Artist: Elvis Presley</artists>
+		<genre> Genre: Folk/ Rock/ Blues/ Country/ Pop</genre>
+		<year> Year: 1961</year>
+	</song>
+	<song>
+		<title>Title: A Thousand Years</title>
+		<artists>Artist: Christina Perri</artists>
+		<genre> Genre: Pop</genre>
+		<year> Year: 2011</year>
+	</song>
+	<song>
+		<title>Title: I'm Yours</title>
+		<artists>Artist: Jason Mraz</artists>
+		<genre> Genre: Reggae/ Pop</genre>
+		<year> Year: 2008</year>
+	</song>
+	<song>
+		<title>Title: Can't Take My Eyes Off of You</title>
+		<artists>Artist: Frankie Valli</artists>
+		<genre> Genre: Pop/ Rock</genre>
+		<year> Year: 1967</year>
+	</song>
+	<song>
+		<title>Title: Shut Up and Dance</title>
+		<artists>Artist: WALK THE MOON</artists>
+		<genre> Genre: Indie/ Pop</genre>
+		<year> Year: 2014</year>
+	</song>
+	<song>
+		<title>Title: Happy</title>
+		<artists>Artist: Pharrell Williams</artists>
+		<genre> Genre: Soul/ Pop</genre>
+		<year> Year: 2013</year>
+	</song>
+	<song>
+		<title>Title: Just the Way You Are</title>
+		<artists>Artist: Bruno Mars</artists>
+		<genre> Genre: Pop/ Rhythm and Blues/ Soft Rock</genre>
+		<year> Year: 2010</year>
+	</song>
+	<song>
+		<title>Title: Sugar</title>
+		<artists>Artist: Maroon 5</artists>
+		<genre> Genre: Children's Music/ Dance/ Electronic/ Pop</genre>
+		<year> Year: 2014</year>
+	</song>
+</song_list>
