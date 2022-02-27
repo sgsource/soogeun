@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+<p id="my_pick"></p>
+<p id="sorted"></p>
+<p id="win"></p>
+<p id="num"></p>
+<p id="lucky"></p>
+<p id="pay"></p>
+
+<p>Press the Pick! button below to pick 5 numbers and a lucky ball.</p>
+
+<button onclick="main()">Pick!</button>
+
+<script type="text/javascript">
+    const N = 5;
+   
+    let win_arr = [12, 15, 24, 35, 48];
+    let win_lucky = 3;
+
+    let pick = [];
+    let lucky_num = -1;
+
+    let count = 0;
+    let lucky_match = 0; // 0: false, 1: true;
+
+    let inter = [];
+
+	function main() {
+        get_pick();
+		sorted_pick();
+        win_nums();
+        num_match();
+        q_lucky();
+        payout();
+        return;
+	}
+
+    function payout() {
+        let pay = "0";
+        if        (count == 0 && lucky_match == 1) {
+            pay = "4";
+        } else if (count == 1 && lucky_match == 1) {
+            pay = "6";
+        } else if (count == 2 && lucky_match == 0) {
+            pay = "3";
+        } else if (count == 2 && lucky_match == 1) {
+            pay = "25";
+        } else if (count == 3 && lucky_match == 0) {
+            pay = "20";
+        } else if (count == 3 && lucky_match == 1) {
+            pay = "150";
+        } else if (count == 4 && lucky_match == 0) {
+            pay = "200";
+        } else if (count == 4 && lucky_match == 1) {
+            pay = "5,000";
+        } else if (count == 5 && lucky_match == 0) {
+            pay = "25,000 a YEAR for LIFE";
+        } else if (count == 5 && lucky_match == 1) {
+            pay = "7,000 a WEEEK for LIFE";
+        }
+        document.getElementById("pay").innerHTML
+        = "Your winnings: $" + pay + "</br>";
+        return;
+
+    }
+
+    function num_match() {
+        intersection_of();
+        document.getElementById("num").innerHTML = "Numbers matching: " + count + "</br>" + "Matching numbers: " + inter + "</br>";
+        return;
+    }
+
+    function win_nums() {
+        document.getElementById("win").innerHTML
+        = "Winning numbers: " + win_arr + " Lucky: " + win_lucky + "</br>";
+        return;
+    }
+
+    function q_lucky() {
+        let str = "does not match </br>";
+        lucky_match = 0;
+        if (lucky_num == win_lucky) {
+            lucky_match = 1;
+            str = "matches </br>";
+        }
+        document.getElementById("lucky").innerHTML = "Lucky ball " + str;
+        return;
+    }
+
+    function intersection_of() {
+        inter = [];
+        inter = arr.filter(x => win_arr.indexOf(x) !== -1);
+        count = inter.length;
+        return;
+    }
+
+	function get_pick() {       
+		let set = new Set();
+        while (set.size < N) {
+            set.add(rand_num(48));
+        }
+
+        arr = [];
+        set.forEach(x => arr.push(x));
+
+        get_lucky();
+        document.getElementById("my_pick").innerHTML
+        = "My pick: " + arr.toString() + " Lucky: " + lucky_num + "</br>";
+        return;
+	}
+
+    function sorted_pick() {
+        arr = arr.sort();
+        document.getElementById("sorted").innerHTML
+        = "My pick: " + arr + " Lucky: " + lucky_num + "</br>";
+        return;
+    }
+
+    // range(max) = [1, max]
+    function rand_num(max) {
+        return (Math.floor(Math.random() * max) + 1);
+    }
+
+	function get_lucky() {
+        lucky_num = rand_num(18);
+	}
+
+
+</script>
+
+</body>
+</html>
+
+<!-- <html> 
+<head>
+    <title>Assignment 5b QuickPick</title>
+    
+</head>
+
+<body>
+    <header>
+    <h1>Lottery for Life</h1>
+    </header>
+    <script language="javascript">
+        
+        str = prompt("Please enter the five winning numbers separated by a space", "");
+        lB = prompt("Please enter the one lucky ball number", "");
+        res = str.split(" ");
+        r1 = parseInt(Math.random() * 47 + 1);
+        r2 = parseInt(Math.random() * 47 + 1);
+        r3 = parseInt(Math.random() * 47 + 1);
+        r4 = parseInt(Math.random() * 47 + 1);
+        r5 = parseInt(Math.random() * 47 + 1);
+        rL = parseInt(Math.random() * 17 + 1);
+
+        document.write("The quick pick numbers are: " 
+                    + r1 + " "
+                    + r2 + " "
+                    + r3 + " "
+                    + r4 + " " 
+                    + r5 + " <br>");
+        count = 0;
+        document.write("The lucky ball number is " + rL + "<br><br>");
+
+        document.write("The winning numbers are: ");
+        for (i = 0; i <= 4; i++)
+        {
+            document.write(res[i] + " ");
+            if (res[i] == r1 
+                || res[i] == r2 
+                || res[i] == r3 
+                || res[i] == r4 
+                || res[i] == r5 )
+                {
+                    count++;
+                }
+        }
+        document.write("<br>The lucky ball number is " + lB);
+
+        document.write("<br><br>You matched " + count + " numbers");
+        if (lB == rL)
+            document.write(" and lucky ball number " + lB);
+        
+        document.write("<br> You Win! Your payout is: ")
+        if (count == 5 && lB == rL)
+            document.write("$7,000 a WEEK for LIFE.");
+        else if (count == 5)
+            document.write("$25,000 a YEAR for LIFE.");
+        else if (count == 4 && lB == rL)
+            document.write("$5,000.");
+        else if (count == 4)
+            document.write("$200.");
+        else if (count == 3 && lB == rL)
+            document.write("$150.");
+        else if (count == 3 )
+            document.write("$20.");
+        else if (count == 2 && lB == rL)
+            document.write("$25.");
+        else if (count == 2)
+            document.write("$3.");
+        else if (count == 1 && lB == rL)
+            document.write("$6.");
+        else if (count == 0 && lB == rL)
+            document.write("$4.");
+        else
+            document.write("$0.");
+        
+
+        
+    </script>
+    
+</body>
+
+</html> -->
