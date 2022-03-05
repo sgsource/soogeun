@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <form>
+        <input type="text" id="x">
+        <input type="text" id="y">
+        <input type="button" value="Submit" onclick="calc()">
+    </form>
+
+    <div><p id="result"></p></div>
+    <div><p id="factors"></p></div>
+</body>
+    <script language="javascript">
+        function calc() {
+            x = parseInt(document.getElementById("x").value)
+            y = parseInt(document.getElementById("y").value)
+
+            let xFactors = getFactors(x)
+            let yFactors = getFactors(y)
+
+            let xSum = getSum(xFactors)
+            let ySum = getSum(yFactors)
+
+            let phrase = "The numbers: " + x + " and " + y + " are "
+            let decision = "not amicable"
+            if (xSum === y && ySum === x) { decision = "amicable" }
+            document.getElementById("result").innerHTML = phrase + decision
+
+            let factors = "Factors of " + x + ": " + xFactors + "</br>" +
+                          "Factors of " + x + ": " + yFactors
+            document.getElementById("factors").innerHTML = factors
+        }
+
+        function getSum(arr) {
+            let sum = 0
+            for (let i = 0; i < arr.length; i++) {
+                sum += arr[i]
+            }
+            return sum
+        }
+
+        function getFactors(n) {
+            let arr = []
+            for (let i = 1; i < n; i++) {
+                if (n % i == 0) {
+                    arr.push(i)
+                }
+            }
+            return arr
+        }
+    </script>
+</html>
