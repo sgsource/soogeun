@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="hw4ec.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <h1>Joe’s Hotdog Stand</h1>
+    <h2>Joe’s special offer -
+        10% discount if the order (before tax) is at least $20
+    </h2>
+    <form>
+        <div class="row">
+            <div class="column">Hotdogs ($3.75 each)</div>
+            <div class="column"><select id="hotdogs"></select></div>
+        </div>
+        <div class="row">
+            <div class="column">Fries ($2.00 each)</div>
+            <div class="column"><select id="fries"></select></div>
+        </div>
+        <div class="row">
+            <div class="column">Soda ($1.80 each)</div>
+            <div class="column"><select id="soda"></select></div>
+        </div>
+        <div class="row">
+            <div class="column">&nbsp;</div>
+            <div class="column">
+                <input type="button" value="Submit" onclick="print_total()">
+            </div>
+        </div>
+
+    </form>
+    <div>
+        <p id= "print"></p>
+    </div>
+
+    <script type="text/javascript">
+        // 0 is the initial value
+        let choices = [0, 1, 2, 3, 4, 5, 10, 15, 20]
+
+        initDropDown("hotdogs")
+        initDropDown("fries")
+        initDropDown("soda")
+
+        function initDropDown(id) {
+            let select = document.getElementById(id)
+            for (let i = 0; i < choices.length; i++) {
+                var node = document.createElement("option")
+                node.textContent = choices[i]
+                node.value = choices[i]
+                select.appendChild(node)
+            }
+        }
+
+        function getNum(id) {
+            let select = document.getElementById(id)
+            return select.options[select.selectedIndex].value
+        }
+
+        function print_total() {
+            let numHotdogs = getNum("hotdogs")
+            let numFries   = getNum("fries")
+            let numSoda    = getNum("soda")
+
+            if ((numHotdogs + numFries + numSoda) < 1) {
+                document.getElementById("print").innerHTML
+                    = "No quantity selected!</br>"
+                    + "Please select a desired quantity for at least 1 item."
+                throw new Error("No quantity selected!")
+            }
+
+    		let subtotal = (numHotdogs * 3.75) + (numFries * 2.00) + (numSoda * 1.80)
+    		if (subtotal >= 20.00) { discount = subtotal * 0.1 }
+            else                   { discount = 0 }
+    		total = subtotal - discount
+            let tax = 6.25
+    		total *= 1.0000 + (tax / 100.0)
+    		document.getElementById("print").innerHTML
+    			= "You selected: " + numHotdogs + " hotdogs, " + numFries
+                + " fries, and " + numSoda + " sodas.<br/>"
+    			+ "Your subtotal is: $" + subtotal.toFixed(2) + "<br/>"
+    			+ "Your discount is: $" + discount.toFixed(2) + "<br/>"
+                + "Massachusetts tax: " + tax + "%</br>"
+    			+ "Your total (after tax) is: $" + total.toFixed(2)
+    	}
+
+    </script>
+</body>
+
+</html>

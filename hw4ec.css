@@ -1,0 +1,48 @@
+body {
+	font-family: Verdana;
+}
+
+h1 {
+	text-align: center;
+	color: #187bcd;
+}
+
+h2 {
+	padding: 0px 50px;
+	text-align: center;
+	font-size: 20px;
+	color: #A91B0D;
+}
+
+.column {
+    float: left;
+    width: 200px;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+    padding: 5px;
+}
+
+select {
+    border-radius: 2px;
+    border-radius: 2px;
+    border-color: #187bcd;
+    background-color: #DBF3FA;
+    width: 60px;
+}
+
+input {
+    width: 60px;
+	background-color: #187bcd;
+	border-radius: 2px;
+	border: none;
+	color: white;
+    padding: 5px;
+}
+
+input:hover {
+    cursor: pointer;
+}
