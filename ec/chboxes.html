@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <input type="checkbox" id="all_id" onclick="toggle_all()">
+    <label for="all_id" id="lab_id">Check all</label>
+
+    </br></br>
+
+    <input type="checkbox" id="one_id" onclick="toggle_box()">first</input>
+    </br>
+    <input type="checkbox" id="two_id" onclick="toggle_box()">second</input>
+    </br>
+    <input type="checkbox" id="thr_id" onclick="toggle_box()">third</input>
+    </br>
+    <input type="checkbox" id="fou_id" onclick="toggle_box()">fourth</input>
+    </br>
+
+    <script>
+        function toggle_all() {
+            let all_box = document.getElementById("all_id")
+            if (all_box.checked) {
+                document.getElementById("lab_id").innerHTML="Uncheck all"
+                apply_all("check")
+            } else {
+                document.getElementById("lab_id").innerHTML="Check all"
+                apply_all("uncheck")
+            }
+        }
+
+        function toggle_box() {
+            let count = 0;
+            let boxes = document.querySelectorAll("box_id")
+            if (document.getElementById("one_id").checked) { count++; }
+            if (document.getElementById("two_id").checked) { count++; }
+            if (document.getElementById("thr_id").checked) { count++; }
+            if (document.getElementById("fou_id").checked) { count++; }
+            if (count === 4) {
+                document.getElementById("lab_id").innerHTML="Uncheck all"
+                document.getElementById("all_id").checked=true
+            } else if (count === 0) {
+                document.getElementById("lab_id").innerHTML="Check all"
+                document.getElementById("all_id").checked=false
+            }
+        }
+
+        function apply_all(action) {
+            let cond = true
+            if (action === "uncheck") { cond = false }
+
+            document.getElementById("one_id").checked = cond
+            document.getElementById("two_id").checked = cond
+            document.getElementById("thr_id").checked = cond
+            document.getElementById("fou_id").checked = cond
+        }
+    </script>
+
+</body>
+</html>

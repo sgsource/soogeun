@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+<input type="text" value="abc" id="left"></input>
+<input type="button" onclick="jump()" value=" JUMP>" id="button"></input>
+<input type="text" value="" id="right"></input>
+
+<script type="text/javascript">
+	function jump() {
+		if (document.getElementById("button").value === " JUMP>") {
+			document.getElementById("button").value = "<JUMP "
+			document.getElementById("left").value = ""
+			document.getElementById("right").value = "abc"
+		} else {
+			document.getElementById("button").value = " JUMP>"
+			document.getElementById("right").value = ""
+			document.getElementById("left").value = "abc"
+		}
+		
+	}
+</script>
+
+</body>
+</html>
