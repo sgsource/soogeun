@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        img {
+            height: 400px;
+            width: auto;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <input type="button" value="Start" id="start">
+    <input type="button" value="Stop"  id="stop">
+    </br>
+    <img src="images/1.jpg">
+</body>
+<script>
+    $(document).ready(function() {
+        let paths = ["images/1.jpg", "images/2.jpg", "images/3.jpg",
+                     "images/4.jpg", "images/5.jpg"]
+        let i = 1;
+        let N = 5;
+        let timer = 0;
+        let T = 1000;
+
+        function next () {
+            $("img").fadeOut(T,
+                function() {
+                    $("img").attr("src", paths[i]);
+                    $("img").fadeIn(T);
+                }
+            );
+            i = (i + 1) % N;
+        }
+
+        function startShow () { timer = setInterval(next, T * 2); }
+
+        function stopShow () {
+            clearInterval(timer);
+            timer = 0;
+        }
+
+        $("#start").click(startShow);
+        $("#stop").click(stopShow);
+    });
+</script>
+</html>
