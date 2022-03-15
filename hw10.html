@@ -3,8 +3,13 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous">
+        </script>
     </head>
-    <script>
+    <script language="javascript">
         function getFruits() {
             request = new XMLHttpRequest();
             console.log("1 - request object created");
@@ -21,7 +26,7 @@
 
 					console.log("5 - response received");
 					result = request.responseText;
-					alert(result);
+					// alert(result);
 					fruits = JSON.parse(result);
 
 					document.getElementById("data").innerHTML =
@@ -30,7 +35,8 @@
 				}
 				else if (request.readyState == 4 && request.status != 200) {
 
-					document.getElementById("data").innerHTML = "Something is wrong!  Check the logs to see where this went off the rails";
+					document.getElementById("data").innerHTML =
+                        "Something is wrong! Check the logs to see where this went off the rails";
 
 				}
 
