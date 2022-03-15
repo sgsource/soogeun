@@ -28,7 +28,9 @@
 
         <script language="javascript">
             let ls = "";
+            let globalData;
             $.get("hw9.json", function (data) {
+                globalData = data;
                 document.getElementById("str").innerHTML =
                     JSON.stringify(data) + "<br/><br/>";
 
@@ -43,16 +45,20 @@
         	})
             $("#button").click(filterGenre);
 
+            // function mkTable(id) {
+            //     let cols = [];
+            //     let
+            // }
+
             function filterGenre() {
                 let v = document.getElementById("genres").value;
                 let ts = "Titles under genre: " + v + "<br/>";
-                $.get("hw9.json", function (data) {
-                    for (let i = 0; i < data.length; i++) {
-                        if (containsGenre(v, data[i].genre)) {
-                            ts += data[i].title + "<br/>";
-                        }
+
+                for (let i = 0; i < globalData.length; i++) {
+                    if (containsGenre(v, globalData[i].genre)) {
+                        ts += globalData[i].title + "<br/>";
                     }
-                })
+                }
                 document.getElementById("subset").innerHTML = ts;
             }
 
@@ -63,7 +69,7 @@
                     }
                 }
                 return false;
-            }
+            // }
             // function filter () {
             //     let v = document.getElementById("genres").value;
             //     let ts = "";
