@@ -1,0 +1,62 @@
+[
+    {
+        "title": "Shake It Off",
+        "artist": "Taylor Swift",
+        "genre": ["Pop"],
+        "year": 2014
+    },
+    {
+        "title": "All You Need is Love",
+        "artist": "The Beatles",
+        "genre": ["Children's Music", "Folk"],
+        "year": 1967
+    },
+    {
+        "title": "Can't Help Falling in Love",
+        "artist": "Elvis Presley",
+        "genre": ["Folk", "Rock"],
+        "year": 1961
+    },
+    {
+        "title": "A Thousand Years",
+        "artist": "Christina Perri",
+        "genre": ["Pop"],
+        "year": 2011
+    },
+    {
+        "title": "I'm Yours",
+        "artist": "Jason Mraz",
+        "genre": ["Reggae", "Pop"],
+        "year": 2008
+    },
+    {
+        "title": "Can't Take My Eyes Off of You",
+        "artist": "Frankie Valli",
+        "genre": ["Pop", "Rock"],
+        "year": 1967
+    },
+    {
+        "title": "Shut Up and Dance",
+        "artist": "WALK THE MOON",
+        "genre": ["Indie", "Pop"],
+        "year": 2014
+    },
+    {
+        "title": "Happy",
+        "artist": "Pharrell Williams",
+        "genre": ["Soul", "Pop"],
+        "year": 2013
+    },
+    {
+        "title": "Just the Way You Are",
+        "artist": "Bruno Mars",
+        "genre": ["Pop", "Rhythm and Blues"],
+        "year": 2010
+    },
+    {
+        "title": "Sugar",
+        "artist": "Maroon 5",
+        "genre": ["Dance", "Pop"],
+        "year": 2014
+    }
+]
