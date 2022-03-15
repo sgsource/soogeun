@@ -41,28 +41,49 @@
                 )
             	document.getElementById("user").innerHTML = ls;
         	})
-            $("#button").click(filter);
+            $("#button").click(filterGenre);
 
-            function filter () {
+            function filterGenre() {
                 let v = document.getElementById("genres").value;
-                let ts = "";
+                let ts = "Titles under genre: " + v + "<br/>";
                 $.get("hw9.json", function (data) {
-
-                    // search all objects
                     for (let i = 0; i < data.length; i++) {
-                        let gs = data[i].genre;
-
-                        // in each obj, search for genre
-                        for (let j = 0; j < gs.length; j++) {
-                            if (gs[j] == v) {
-                                ts += data[i].name + "<br/>";
-                                j = gs.length;
-                            }
+                        if (containsGenre(v, data[i].genre)) {
+                            ts += data[i].title + "<br/>";
                         }
                     }
-            	})
+                })
                 document.getElementById("subset").innerHTML = ts;
             }
+
+            function containsGenre(genre, genres) {
+                for (let i = 0; i < genres.length; i++) {
+                    if (genre == genres[i]) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            // function filter () {
+            //     let v = document.getElementById("genres").value;
+            //     let ts = "";
+            //     $.get("hw9.json", function (data) {
+            //
+            //         // search all objects
+            //         for (let i = 0; i < data.length; i++) {
+            //             let gs = data[i].genre;
+            //
+            //             // in each obj, search for genre
+            //             for (let j = 0; j < gs.length; j++) {
+            //                 if (gs[j] == v) {
+            //                     ts += data[i].name + "<br/>";
+            //                     j = gs.length;
+            //                 }
+            //             }
+            //         }
+            // 	})
+            //     document.getElementById("subset").innerHTML = ts;
+            // }
 
         </script>
     </body>
