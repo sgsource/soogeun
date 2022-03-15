@@ -24,6 +24,7 @@
             </select>
             <input type="button" id="button" value="Filter">
         </form>
+        <div id="subset"></div>
 
         <script language="javascript">
             let ls = "";
@@ -35,7 +36,7 @@
                     ls += song.title  + "<br/>"
                        +  "Artist: "  + song.artist + "<br/>"
                        +  "Genre: "   + song.genre + "<br/>"
-                       +  "Released " + song.year + "<br/>"
+                       +  "Released " + song.year + "<br/><br/>"
         			}
                 )
             	document.getElementById("user").innerHTML = ls;
