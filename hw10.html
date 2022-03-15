@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <script>
+        function getFruits() {
+            request = new XMLHttpRequest();
+            console.log("1 - request object created");
+
+            request.open("GET",
+                         "https://www.fruityvice.com/api/fruit/protein?min=1.0",
+                         true);
+            console.log("2 - opened request file");
+
+            request.onreadystatechange = function() {
+				console.log("3 - readystatechange event fired.");
+
+				if (request.readyState == 4 && request.status == 200) {
+
+					console.log("5 - response received");
+					result = request.responseText;
+					alert(result);
+					fruits = JSON.parse(result);
+
+					document.getElementById("data").innerHTML =
+                    "fruits with protein > 1.0: " + fruits["name"]["protein"];
+
+				}
+				else if (request.readyState == 4 && request.status != 200) {
+
+					document.getElementById("data").innerHTML = "Something is wrong!  Check the logs to see where this went off the rails";
+
+				}
+
+				else if (request.readyState == 3) {
+
+					document.getElementById("data").innerHTML = "Too soon!  Try again";
+
+				}
+
+			}
+		// Step 4: fire off the HTTP request
+			request.send();
+			console.log("4 - Request sent");
+        }
+    </script>
+
+    <body onload="getFruits()">
+        <div id="data">Loading...</div>
+    </body>
+</html>
