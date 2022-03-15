@@ -45,11 +45,6 @@
         	})
             $("#button").click(filterGenre);
 
-            // function mkTable(id) {
-            //     let cols = [];
-            //     let
-            // }
-
             function filterGenre() {
                 let v = document.getElementById("genres").value;
                 let ts = "Titles under genre: " + v + "<br/>";
@@ -62,6 +57,7 @@
                 document.getElementById("subset").innerHTML = ts;
             }
 
+            // helper function to check if genre \in genres
             function containsGenre(genre, genres) {
                 for (let i = 0; i < genres.length; i++) {
                     if (genre == genres[i]) {
@@ -70,26 +66,6 @@
                 }
                 return false;
             }
-            // function filter () {
-            //     let v = document.getElementById("genres").value;
-            //     let ts = "";
-            //     $.get("hw9.json", function (data) {
-            //
-            //         // search all objects
-            //         for (let i = 0; i < data.length; i++) {
-            //             let gs = data[i].genre;
-            //
-            //             // in each obj, search for genre
-            //             for (let j = 0; j < gs.length; j++) {
-            //                 if (gs[j] == v) {
-            //                     ts += data[i].name + "<br/>";
-            //                     j = gs.length;
-            //                 }
-            //             }
-            //         }
-            // 	})
-            //     document.getElementById("subset").innerHTML = ts;
-            // }
 
         </script>
     </body>
