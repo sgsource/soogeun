@@ -1,57 +1,46 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Fruits API</title>
+        <title>Exchange Rates API</title>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <script language="javascript">
-        function getFruits() {
+        function getRates() {
             request = new XMLHttpRequest();
             console.log("1 - request object created");
 
-            request.open("GET", "https://www.fruityvice.com/api/fruit/protein?min=1.0", true);
+            request.open("GET", "https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/usd.json", true);
             console.log("2 - opened request file");
 
             request.onreadystatechange = function() {
 				console.log("3 - readystatechange event fired.");
 
 				if (request.readyState == 4 && request.status == 200) {
-
 					console.log("5 - response received");
 					result = request.responseText;
 					// alert(result);
-					fruits = JSON.parse(result);
-
-					document.getElementById("data").innerHTML =
-                    "fruits with protein > 1.0: " + fruits["name"]["protein"];
+					rates = JSON.parse(result);
+					document.getElementById("data").innerHTML
+                    = "1 USD = " + rates["usd"]["krw"] + " KRW </br>"
+                    + "1 USD = " + rates["usd"]["jpy"] + " JPY </br>";
 
 				}
 				else if (request.readyState == 4 && request.status != 200) {
-
 					document.getElementById("data").innerHTML =
                         "Something is wrong! Check the logs to see where this went off the rails";
-
 				}
-
 				else if (request.readyState == 3) {
-
 					document.getElementById("data").innerHTML = "Too soon!  Try again";
-
 				}
-
 			}
-		// Step 4: fire off the HTTP request
 			request.send();
 			console.log("4 - Request sent");
         }
     </script>
 
-    <body onload="getFruits()">
-        <header>
-            <h1>API Fun</h1>
-            <hr>
-        </header>
+    <body onload="getRates()">
+        <h1>Exchange Rates (USD to KRW/JPY)</h1>
         <div id="data">Loading...</div>
     </body>
 </html>
