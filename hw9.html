@@ -12,20 +12,57 @@
     <body>
         <div id="str"></div>
         <div id="user"></div>
+        <form>
+            <select id="genres">
+                <option value="Folk">Folk</option>
+                <option value="Pop">Pop</option>
+                <option value="Rock">Rock</option>
+                <option value="Reggae">Reggae</option>
+                <option value="Indie">Indie</option>
+                <option value="Soul">Soul</option>
+                <option value="Dance">Dance</option>
+            </select>
+            <input type="button" id="button" value="Filter">
+        </form>
+
         <script language="javascript">
             let ls = "";
-            $.get("hw9.json", function(data) {
+            $.get("hw9.json", function (data) {
                 document.getElementById("str").innerHTML =
-                    JSON.stringify(data) + "<br/>";
+                    JSON.stringify(data) + "<br/><br/>";
 
         		data.forEach(function (song) {
                     ls += song.title  + "<br/>"
                        +  "Artist: "  + song.artist + "<br/>"
                        +  "Genre: "   + song.genre + "<br/>"
                        +  "Released " + song.year + "<br/>"
-        			})
+        			}
+                )
             	document.getElementById("user").innerHTML = ls;
         	})
+            $("#button").click(filter);
+
+            function filter () {
+                let v = document.getElementById("genres").value;
+                let ts = "";
+                $.get("hw9.json", function (data) {
+
+                    // search all objects
+                    for (let i = 0; i < data.length; i++) {
+                        let gs = data[i].genre;
+
+                        // in each obj, search for genre
+                        for (let j = 0; j < gs.length; j++) {
+                            if (gs[j] == v) {
+                                ts += data[i].name + "<br/>";
+                                j = gs.length;
+                            }
+                        }
+                    }
+            	})
+                document.getElementById("subset").innerHTML = ts;
+            }
+
         </script>
     </body>
 </html>

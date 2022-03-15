@@ -8,7 +8,7 @@
     {
         "title": "All You Need is Love",
         "artist": "The Beatles",
-        "genre": ["Children's Music", "Folk"],
+        "genre": ["Folk"],
         "year": 1967
     },
     {
@@ -50,7 +50,7 @@
     {
         "title": "Just the Way You Are",
         "artist": "Bruno Mars",
-        "genre": ["Pop", "Rhythm and Blues"],
+        "genre": ["Pop"],
         "year": 2010
     },
     {
