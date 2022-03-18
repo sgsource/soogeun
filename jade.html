@@ -101,18 +101,18 @@ function td(content, className="")
 
     function hide () {
         var addresses = $('p[class="userInfo address"]');
-        addresses[0].style.visibility = 'hidden';
-        addresses[1].style.visibility = 'hidden';
+        addresses[0].style.display = 'none';
+        addresses[1].style.display = 'none';
     }
 
     window.onload=$('input[name="p_or_d"]').click(function () {
         var addresses = $('p[class="userInfo address"]');
-        var visibility = 'hidden';
+        var disp = 'none';
         if ($(this).val() == 'delivery') {
-            visibility = 'visible';
+            disp = 'block';
         }
-        addresses[0].style.visibility = visibility;
-        addresses[1].style.visibility = visibility;
+        addresses[0].style.display = disp;
+        addresses[1].style.display = disp;
 
     })
 
@@ -120,7 +120,7 @@ function td(content, className="")
         $('input[value="Submit Order"]').click(function() {
             if (valTotal() && valName() && valPhone()) {
                 var st = $('p[class="userInfo address"]')[0];
-                if (st.style.visibility == 'visible') {
+                if (st.style.display == 'block') {
                     if (valAddress()) {
                         thank();
                     }
@@ -135,7 +135,7 @@ function td(content, className="")
         var orderType = 'Pickup';
         var arrival = 15;
         var st = $('p[class="userInfo address"]')[0];
-        if (st.style.visibility == 'visible') {
+        if (st.style.display == 'block') {
             orderType = 'Delivery'
             arrival = 30;
         }
